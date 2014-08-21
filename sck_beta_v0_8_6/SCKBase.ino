@@ -591,6 +591,7 @@ boolean sckConnect()
     if (sckReadintEEPROM(EE_ADDR_NUMBER_NETS)<1) return false;
     if(sckEnterCommandMode())
     {    
+	  sendCommand(F("set comm remote 0")); // FFR Hide Hello	
       sckSendCommand(F("set wlan join 1")); // Disable AP mode
       sckSendCommand(F("set ip dhcp 1")); // Enable DHCP server
       sckSendCommand(F("set ip proto 10")); //Modo TCP y modo HTML
